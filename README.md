@@ -1,12 +1,12 @@
 <h1> Yandex_pygame_project </h1>
-<hr size=0px width=700px align="left">
+<hr size=0px width=900px align="left">
 <h2> Техническое задание </h2>
 <ol>
 <li> Управление в игре происходит припомощи управления мышкой
 <li> Сохранение результатов в txt файл
 <li> Усложнение уровней
 </ol>
-<hr size=0px width=700px align="left">
+<hr size=0px width=900px align="left">
 <h2> Пояснительная записка </h2>
 <h4> Название проекта - Yandex_pygame_project </h4>
 <h4> Автор проекта - Шкаленко Леонид </h4>
