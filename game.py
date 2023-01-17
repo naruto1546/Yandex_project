@@ -52,7 +52,6 @@ def function_button_lvl1():
     text = font.render(str(county_balls), True, BALL)
     board = Board(3, 3)
     board.set_view(125, 225, 50)
-
     button_left1 = Button(position=(100, 250), size=(50, 50),
                           clr=BACKGROUND,
                           cngclr=BACKGROUND, func=function,
@@ -162,8 +161,81 @@ def function_button_lvl2():
     text = font.render(str(county_balls), True, BALL)
     board = Board(4, 4)
     board.set_view(100, 200, 50)
+    button_left1 = Button(position=(75, 225), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
+    button_left2 = Button(position=(75, 275), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
+    button_left3 = Button(position=(75, 325), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
+    button_left4 = Button(position=(75, 375), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
 
-    buttons_lvl2 = []
+    button_right1 = Button(position=(325, 225), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+    button_right2 = Button(position=(325, 275), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+    button_right3 = Button(position=(325, 325), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+    button_right4 = Button(position=(325, 375), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+
+    button_up1 = Button(position=(125, 175), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+    button_up2 = Button(position=(175, 175), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+    button_up3 = Button(position=(225, 175), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+    button_up4 = Button(position=(275, 175), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+
+    button_down1 = Button(position=(125, 425), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+    button_down2 = Button(position=(175, 425), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+    button_down3 = Button(position=(225, 425), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+    button_down4 = Button(position=(275, 425), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+
+    buttons_lvl2_left = [button_left1, button_left2, button_left3,
+                         button_left4]
+    buttons_lvl2_right = [button_right1, button_right2, button_right3,
+                          button_right4]
+    buttons_lvl2_up = [button_up1, button_up2, button_up3, button_up4]
+    buttons_lvl2_down = [button_down1, button_down2, button_down3,
+                         button_down4]
     running = True
     while running:
         screen.fill(BACKGROUND)
@@ -181,8 +253,28 @@ def function_button_lvl2():
                     for button in buttons_lvl:
                         if button.rect.collidepoint(pos):
                             button.call_back()
+                    for button_left in buttons_lvl2_left:
+                        if button_left.rect.collidepoint(pos):
+                            button_left.call_back()
+                    for button_right in buttons_lvl2_right:
+                        if button_right.rect.collidepoint(pos):
+                            button_right.call_back()
+                    for button_up in buttons_lvl2_up:
+                        if button_up.rect.collidepoint(pos):
+                            button_up.call_back()
+                    for button_down in buttons_lvl2_down:
+                        if button_down.rect.collidepoint(pos):
+                            button_down.call_back()
         for button in buttons_lvl:
             button.draw(screen)
+        for button_left in buttons_lvl2_left:
+            button_left.draw(screen)
+        for button_right in buttons_lvl2_right:
+            button_right.draw(screen)
+        for button_up in buttons_lvl2_up:
+            button_up.draw(screen)
+        for button_down in buttons_lvl2_down:
+            button_down.draw(screen)
         pygame.draw.rect(screen, GREEN, (300, 0, 100, 50))
         pygame.draw.circle(screen, BALL, (360, 25), 20)
         screen.blit(text, (310, 1))
@@ -198,8 +290,98 @@ def function_button_lvl3():
     text = font.render(str(county_balls), True, BALL)
     board = Board(5, 5)
     board.set_view(75, 175, 50)
+    button_left1 = Button(position=(50, 200), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
+    button_left2 = Button(position=(50, 250), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
+    button_left3 = Button(position=(50, 300), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
+    button_left4 = Button(position=(50, 350), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
+    button_left5 = Button(position=(50, 400), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='→')
 
-    buttons_lvl3 = []
+    button_right1 = Button(position=(350, 200), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+    button_right2 = Button(position=(350, 250), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+    button_right3 = Button(position=(350, 300), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+    button_right4 = Button(position=(350, 350), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+    button_right5 = Button(position=(350, 400), size=(50, 50),
+                           clr=BACKGROUND,
+                           cngclr=BACKGROUND, func=function,
+                           text='←')
+
+    button_up1 = Button(position=(100, 150), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+    button_up2 = Button(position=(150, 150), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+    button_up3 = Button(position=(200, 150), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+    button_up4 = Button(position=(250, 150), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+    button_up5 = Button(position=(300, 150), size=(50, 50),
+                        clr=BACKGROUND,
+                        cngclr=BACKGROUND, func=function,
+                        text='↓')
+
+    button_down1 = Button(position=(100, 450), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+    button_down2 = Button(position=(150, 450), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+    button_down3 = Button(position=(200, 450), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+    button_down4 = Button(position=(250, 450), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+    button_down5 = Button(position=(300, 450), size=(50, 50),
+                          clr=BACKGROUND,
+                          cngclr=BACKGROUND, func=function,
+                          text='↑')
+
+    buttons_lvl3_left = [button_left1, button_left2, button_left3,
+                         button_left4, button_left5]
+    buttons_lvl3_right = [button_right1, button_right2, button_right3,
+                          button_right4, button_right5]
+    buttons_lvl3_up = [button_up1, button_up2, button_up3, button_up4,
+                       button_up5]
+    buttons_lvl3_down = [button_down1, button_down2, button_down3,
+                         button_down4, button_down5]
     running = True
     while running:
         screen.fill(BACKGROUND)
@@ -217,8 +399,28 @@ def function_button_lvl3():
                     for button in buttons_lvl:
                         if button.rect.collidepoint(pos):
                             button.call_back()
+                    for button_left in buttons_lvl3_left:
+                        if button_left.rect.collidepoint(pos):
+                            button_left.call_back()
+                    for button_right in buttons_lvl3_right:
+                        if button_right.rect.collidepoint(pos):
+                            button_right.call_back()
+                    for button_up in buttons_lvl3_up:
+                        if button_up.rect.collidepoint(pos):
+                            button_up.call_back()
+                    for button_down in buttons_lvl3_down:
+                        if button_down.rect.collidepoint(pos):
+                            button_down.call_back()
         for button in buttons_lvl:
             button.draw(screen)
+        for button_left in buttons_lvl3_left:
+            button_left.draw(screen)
+        for button_right in buttons_lvl3_right:
+            button_right.draw(screen)
+        for button_up in buttons_lvl3_up:
+            button_up.draw(screen)
+        for button_down in buttons_lvl3_down:
+            button_down.draw(screen)
         pygame.draw.rect(screen, GREEN, (300, 0, 100, 50))
         pygame.draw.circle(screen, BALL, (360, 25), 20)
         screen.blit(text, (310, 1))
