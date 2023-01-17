@@ -1,5 +1,6 @@
 import sys
 import pygame
+import sqlite3
 from board import Board
 from button import Button
 
@@ -33,7 +34,19 @@ def function_button_quit():
 
 
 def function_button_save_txt():
+    balls_lvl = [1, 2, 2]
     convert = open('rating.txt', 'w+')
+    connection = sqlite3.connect('lvl.db')
+    cursor = connection.cursor()
+    score_lvl = cursor.execute("""SELECT score FROM board""").fetchall()
+    k = 0
+    for elem in score_lvl:
+        for i in elem:
+            score = f'lvl_{k + 1}={str(int(balls_lvl[k] / i * 100))}%\n'
+            k += 1
+            convert.write(score)
+
+    connection.close()
     convert.close()
 
 
