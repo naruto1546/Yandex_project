@@ -9,7 +9,7 @@ class Board:
         self.left = 10
         self.top = 10
         self.cell_size = 30
-        self.WHITE = pygame.Color('#FFFFFF')
+        self.GREY = pygame.Color('#DBD7D2')
 
     def set_view(self, left, top, cell_size):
         self.left = left
@@ -20,7 +20,7 @@ class Board:
 
         for i in range(self.h):
             for j in range(self.w):
-                pygame.draw.rect(surface, self.WHITE, (
+                pygame.draw.rect(surface, self.GREY, (
                     self.left + self.cell_size * j,
                     self.top + self.cell_size * i,
                     self.cell_size, self.cell_size),
