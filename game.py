@@ -5,8 +5,6 @@ from button import Button
 
 
 def function_button_choice_lvl():
-    global run_start_menu
-    run_start_menu = False
     run_lvl_menu = True
     while run_lvl_menu:
         screen.fill(BACKGROUND)
@@ -40,11 +38,63 @@ def function_button_save_txt():
 
 
 def function_button_ok():
-    pass
+    text = font.render('Уровень пройден', True, BALL)
+    text1 = font.render('Найдены все шарики', True, BALL)
+    running = True
+    while running:
+        screen.fill(BACKGROUND)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    sys.exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    pos = pygame.mouse.get_pos()
+                    for button_last_screen in buttons_last_screen:
+                        if button_last_screen.rect.collidepoint(pos):
+                            button_last_screen.call_back()
+        for button_last_screen in buttons_last_screen:
+            button_last_screen.draw(screen)
+        screen.blit(text, (75, 250))
+        screen.blit(text1, (50, 300))
+        pygame.display.flip()
+    pygame.quit()
 
 
 def function():
     pass
+
+
+def function_button_back_start_menu():
+    run_start_menu = True
+    while run_start_menu:
+        screen.fill(BACKGROUND)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    sys.exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    pos = pygame.mouse.get_pos()
+                    for button in buttons_start_menu:
+                        if button.rect.collidepoint(pos):
+                            button.call_back()
+        for button in buttons_start_menu:
+            button.draw(screen)
+        pygame.display.flip()
+
+
+def function_button_quit_last_screen():
+    pygame.quit()
+    sys.exit()
 
 
 def function_button_lvl1():
@@ -432,7 +482,6 @@ def function_button_lvl3():
 
 
 def function_back():
-    global run_start_menu
     run_start_menu = True
     while run_start_menu:
         screen.fill(BACKGROUND)
@@ -503,10 +552,23 @@ button_ok = Button(position=(360, 626), size=(80, 45),
                    clr=GREEN,
                    cngclr=RED, func=function_button_ok,
                    text='ok')
+button_back_start_menu = Button(position=(100, 400), size=(175, 50),
+                                clr=GREEN,
+                                cngclr=RED,
+                                func=function_button_back_start_menu,
+                                text='Вернуться в меню')
+button_quit_last_screen = Button(position=(300, 400), size=(175, 50),
+                                 clr=GREEN,
+                                 cngclr=RED,
+                                 func=function_button_quit_last_screen,
+                                 text='Выйти из игры')
+
 buttons_choice_lvl = [button_choice_lvl_1, button_choice_lvl_2,
                       button_choice_lvl_3, button_back]
 
 buttons_lvl = [button_back, button_ok]
+
+buttons_last_screen = [button_quit_last_screen, button_back_start_menu]
 
 run_start_menu = True
 while run_start_menu:
